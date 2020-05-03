@@ -1,4 +1,4 @@
 # Hello_world
-Beginning/n/
+Beginning
 The first
 # 怎么形容好？
