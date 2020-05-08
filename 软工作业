@@ -1,0 +1,76 @@
+actor A
+
+actor B
+
+alt #effcef
+
+  activate A #fae3d9
+
+  activate B #bbded6
+
+  A -[#27496d]> B :SYN
+
+    note left :CLOSED
+
+  B -[#27496d]> A :SYN+ACK 
+
+    note right :LISTEN
+
+  A -[#27496d]> B : ACK
+
+    note left :SYN_SENT
+
+     note right :SYN_RECD
+
+  |||
+
+end
+
+alt #94d3ac
+
+  A -[#00a8cc]> B : abc
+
+    note left  : ESTABLISHED
+
+  B -[#00a8cc]> A : ACK
+
+  A -[#00a8cc]> B : defg
+
+  B -[#00a8cc]> A : foobar 
+
+  A -[#00a8cc]> B : hello
+
+  B -[#00a8cc]> A : goodbye 
+
+   note right  : ESTABLISHED
+
+end
+
+alt #94d3ac
+
+  A -[#0c7b93]> B : FIN
+
+    note left : TIMEWAIT_1
+
+    note right : CLOESWAIT
+
+  B -[#0c7b93]> A : ACK
+
+    note left : TIMEWAIT_2
+
+  B -[#0c7b93]> A : FIN
+
+    note left : **TIMEWAIT**
+
+    note right : LAST_ACK
+
+  A -[#0c7b93]> B : ACK
+
+    note right : CLOSED
+
+end
+
+  deactivate A
+
+  deactivate B
+
